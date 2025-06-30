@@ -63,6 +63,7 @@ def fetch_recent_news():
             print(f"   🔗 {link}")
             print(f"   📎 매칭 키워드: {matched_kw}")
             print()
+    print(news_items)
     return news_items
     # GPT 요약 및 이메일 본문 생성
 #email_text = build_email_body(news_items)
