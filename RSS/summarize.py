@@ -139,35 +139,32 @@ def build_email_body(news_items):
         link = item['link']
         summary = summarize_with_mixtral(title, content)
 
+        formatted_summary = summary.replace('\n', '- \n')
+
         formatted = f"""o  {title}
 
-{summary.replace('\n', '- \n')}
+{formatted_summary}
 
 {link}
 """
         result.append(formatted)
 
-
     weekday_kr = ["월", "화", "수", "목", "금", "토", "일"]
-
-
     today = datetime.today()
-
-
     formatted_date = today.strftime(f"%Y년 %m월 %d일({weekday_kr[today.weekday()]})")
 
-
+    # 최종 email 본문
     email_body = f"""안녕하세요. 클라우드 인증팀 나경준입니다.
 
 {formatted_date} 뉴스 동향공유드립니다.
 
 ## 클라우드 보안 및 사이버 공격 관련
 
-{result}
+{chr(10).join(result)}
 
 일일동향 전체 자료 위치 : T:\\10000 개인 백업\\나경준\\일일 클라우드_보안_관련_동향조사
 
 감사합니다."""
 
-    
     return email_body
+
