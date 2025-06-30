@@ -143,7 +143,8 @@ def build_email_body(news_items):
 
 {summary.replace('\n', '- \n')}
 
-{link}\n"""
+{link}
+"""
         result.append(formatted)
 
 
