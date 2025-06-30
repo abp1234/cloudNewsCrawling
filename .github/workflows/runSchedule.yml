@@ -3,6 +3,7 @@ name: Run RSS Main
 on:
   schedule:
     - cron: '00 23 * * *'
+    - cron: '24 01 * * *' 
   workflow_dispatch:
 
 jobs:
